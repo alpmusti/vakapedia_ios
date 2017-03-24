@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */; };
+		BA0F7D9D1E85BB1E001F2E80 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */; };
+		BA0F7D9F1E85BB1E001F2E80 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9E1E85BB1E001F2E80 /* SecondViewController.swift */; };
+		BA0F7DA21E85BB1E001F2E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */; };
+		BA0F7DA41E85BB1E001F2E80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */; };
+		BA0F7DA71E85BB1E001F2E80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */; };
+		BA0F7DB21E85BB1E001F2E80 /* VakapediaHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */; };
+		BA0F7DBD1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA0F7DAE1E85BB1E001F2E80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA0F7D8F1E85BB1E001F2E80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA0F7D961E85BB1E001F2E80;
+			remoteInfo = VakapediaHackathon;
+		};
+		BA0F7DB91E85BB1E001F2E80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA0F7D8F1E85BB1E001F2E80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA0F7D961E85BB1E001F2E80;
+			remoteInfo = VakapediaHackathon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA0F7D971E85BB1E001F2E80 /* VakapediaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VakapediaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		BA0F7D9E1E85BB1E001F2E80 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BA0F7DA11E85BB1E001F2E80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA0F7DA61E85BB1E001F2E80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA0F7DA81E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA0F7DAD1E85BB1E001F2E80 /* VakapediaHackathonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VakapediaHackathonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VakapediaHackathonTests.swift; sourceTree = "<group>"; };
+		BA0F7DB31E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA0F7DB81E85BB1E001F2E80 /* VakapediaHackathonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VakapediaHackathonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VakapediaHackathonUITests.swift; sourceTree = "<group>"; };
+		BA0F7DBE1E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA0F7D941E85BB1E001F2E80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DAA1E85BB1E001F2E80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DB51E85BB1E001F2E80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA0F7D8E1E85BB1E001F2E80 = {
+			isa = PBXGroup;
+			children = (
+				BA0F7D991E85BB1E001F2E80 /* VakapediaHackathon */,
+				BA0F7DB01E85BB1E001F2E80 /* VakapediaHackathonTests */,
+				BA0F7DBB1E85BB1E001F2E80 /* VakapediaHackathonUITests */,
+				BA0F7D981E85BB1E001F2E80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA0F7D981E85BB1E001F2E80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F7D971E85BB1E001F2E80 /* VakapediaHackathon.app */,
+				BA0F7DAD1E85BB1E001F2E80 /* VakapediaHackathonTests.xctest */,
+				BA0F7DB81E85BB1E001F2E80 /* VakapediaHackathonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA0F7D991E85BB1E001F2E80 /* VakapediaHackathon */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */,
+				BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */,
+				BA0F7D9E1E85BB1E001F2E80 /* SecondViewController.swift */,
+				BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */,
+				BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */,
+				BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */,
+				BA0F7DA81E85BB1E001F2E80 /* Info.plist */,
+			);
+			path = VakapediaHackathon;
+			sourceTree = "<group>";
+		};
+		BA0F7DB01E85BB1E001F2E80 /* VakapediaHackathonTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */,
+				BA0F7DB31E85BB1E001F2E80 /* Info.plist */,
+			);
+			path = VakapediaHackathonTests;
+			sourceTree = "<group>";
+		};
+		BA0F7DBB1E85BB1E001F2E80 /* VakapediaHackathonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */,
+				BA0F7DBE1E85BB1E001F2E80 /* Info.plist */,
+			);
+			path = VakapediaHackathonUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA0F7D961E85BB1E001F2E80 /* VakapediaHackathon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA0F7DC11E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathon" */;
+			buildPhases = (
+				BA0F7D931E85BB1E001F2E80 /* Sources */,
+				BA0F7D941E85BB1E001F2E80 /* Frameworks */,
+				BA0F7D951E85BB1E001F2E80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VakapediaHackathon;
+			productName = VakapediaHackathon;
+			productReference = BA0F7D971E85BB1E001F2E80 /* VakapediaHackathon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA0F7DAC1E85BB1E001F2E80 /* VakapediaHackathonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA0F7DC41E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonTests" */;
+			buildPhases = (
+				BA0F7DA91E85BB1E001F2E80 /* Sources */,
+				BA0F7DAA1E85BB1E001F2E80 /* Frameworks */,
+				BA0F7DAB1E85BB1E001F2E80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA0F7DAF1E85BB1E001F2E80 /* PBXTargetDependency */,
+			);
+			name = VakapediaHackathonTests;
+			productName = VakapediaHackathonTests;
+			productReference = BA0F7DAD1E85BB1E001F2E80 /* VakapediaHackathonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA0F7DB71E85BB1E001F2E80 /* VakapediaHackathonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA0F7DC71E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonUITests" */;
+			buildPhases = (
+				BA0F7DB41E85BB1E001F2E80 /* Sources */,
+				BA0F7DB51E85BB1E001F2E80 /* Frameworks */,
+				BA0F7DB61E85BB1E001F2E80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA0F7DBA1E85BB1E001F2E80 /* PBXTargetDependency */,
+			);
+			name = VakapediaHackathonUITests;
+			productName = VakapediaHackathonUITests;
+			productReference = BA0F7DB81E85BB1E001F2E80 /* VakapediaHackathonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA0F7D8F1E85BB1E001F2E80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Mustafa ALP";
+				TargetAttributes = {
+					BA0F7D961E85BB1E001F2E80 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					BA0F7DAC1E85BB1E001F2E80 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BA0F7D961E85BB1E001F2E80;
+					};
+					BA0F7DB71E85BB1E001F2E80 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BA0F7D961E85BB1E001F2E80;
+					};
+				};
+			};
+			buildConfigurationList = BA0F7D921E85BB1E001F2E80 /* Build configuration list for PBXProject "VakapediaHackathon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA0F7D8E1E85BB1E001F2E80;
+			productRefGroup = BA0F7D981E85BB1E001F2E80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA0F7D961E85BB1E001F2E80 /* VakapediaHackathon */,
+				BA0F7DAC1E85BB1E001F2E80 /* VakapediaHackathonTests */,
+				BA0F7DB71E85BB1E001F2E80 /* VakapediaHackathonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA0F7D951E85BB1E001F2E80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA0F7DA71E85BB1E001F2E80 /* LaunchScreen.storyboard in Resources */,
+				BA0F7DA41E85BB1E001F2E80 /* Assets.xcassets in Resources */,
+				BA0F7DA21E85BB1E001F2E80 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DAB1E85BB1E001F2E80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DB61E85BB1E001F2E80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA0F7D931E85BB1E001F2E80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA0F7D9F1E85BB1E001F2E80 /* SecondViewController.swift in Sources */,
+				BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */,
+				BA0F7D9D1E85BB1E001F2E80 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DA91E85BB1E001F2E80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA0F7DB21E85BB1E001F2E80 /* VakapediaHackathonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA0F7DB41E85BB1E001F2E80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA0F7DBD1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA0F7DAF1E85BB1E001F2E80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA0F7D961E85BB1E001F2E80 /* VakapediaHackathon */;
+			targetProxy = BA0F7DAE1E85BB1E001F2E80 /* PBXContainerItemProxy */;
+		};
+		BA0F7DBA1E85BB1E001F2E80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA0F7D961E85BB1E001F2E80 /* VakapediaHackathon */;
+			targetProxy = BA0F7DB91E85BB1E001F2E80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA0F7DA11E85BB1E001F2E80 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA0F7DA61E85BB1E001F2E80 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA0F7DBF1E85BB1E001F2E80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA0F7DC01E85BB1E001F2E80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA0F7DC21E85BB1E001F2E80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VakapediaHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BA0F7DC31E85BB1E001F2E80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VakapediaHackathon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BA0F7DC51E85BB1E001F2E80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VakapediaHackathonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VakapediaHackathon.app/VakapediaHackathon";
+			};
+			name = Debug;
+		};
+		BA0F7DC61E85BB1E001F2E80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VakapediaHackathonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VakapediaHackathon.app/VakapediaHackathon";
+			};
+			name = Release;
+		};
+		BA0F7DC81E85BB1E001F2E80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VakapediaHackathonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VakapediaHackathon;
+			};
+			name = Debug;
+		};
+		BA0F7DC91E85BB1E001F2E80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VakapediaHackathonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VakapediaHackathon;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA0F7D921E85BB1E001F2E80 /* Build configuration list for PBXProject "VakapediaHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA0F7DBF1E85BB1E001F2E80 /* Debug */,
+				BA0F7DC01E85BB1E001F2E80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA0F7DC11E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA0F7DC21E85BB1E001F2E80 /* Debug */,
+				BA0F7DC31E85BB1E001F2E80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BA0F7DC41E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA0F7DC51E85BB1E001F2E80 /* Debug */,
+				BA0F7DC61E85BB1E001F2E80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BA0F7DC71E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA0F7DC81E85BB1E001F2E80 /* Debug */,
+				BA0F7DC91E85BB1E001F2E80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA0F7D8F1E85BB1E001F2E80 /* Project object */;
+}
