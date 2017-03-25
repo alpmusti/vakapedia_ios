@@ -8,48 +8,38 @@
 
 import UIKit
 import Alamofire
+import KeychainAccess
+import SwiftOverlays
+import SwiftyJSON
 
-class LoginVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource{
+class LoginVC: UIViewController{
 
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     
-    var isWorked : Int = 0
-    let isWorking = ["Hayır" , "Evet"]
     let baseURL = "http://localhost:1337"
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return isWorking.count
-    }
+    let keyChain : Keychain = Keychain(service: "Vakapedia")
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return isWorking[row]
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if isWorking[row] == "Evet" {
-            locationField.isEnabled = true
-            isWorked = 1
-        }else{
-            locationField.isEnabled = false
-            isWorked = 0
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)        
+        if keyChain["isFirst"] == "0"{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
+            self.present(vc, animated: true, completion: nil)
         }
     }
-    @IBAction func saveTapped(_ sender: Any) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
-        self.present(vc, animated: true, completion: nil)
-        return
+    }
+
+       @IBAction func saveTapped(_ sender: Any) {
+        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
+//        self.present(vc, animated: true, completion: nil)
+//        return
         if (nameField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)! {
             warn("İsim alanı boş olamaz!")
             return
@@ -62,13 +52,10 @@ class LoginVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource
         }else if !isValidEmail(testStr: emailField.text!) {
             warn("Geçersiz mail adresi girdiniz!")
             return
-        }else if isWorked == 1{
-            if(locationField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)!{
-                warn("Lokasyon belirlemeniz gerekmektedir.")
-                return
-            }
+        }else{
+            self.showTextOverlay("Hesap oluşturuluyor.")
+            postAccountToServer(nameField.text! , lastNameField.text! , emailField.text!)
         }
-        postAccountToServer(nameField.text! , lastNameField.text! , emailField.text!)
     }
     
     func isValidEmail(testStr:String) -> Bool {
@@ -91,14 +78,16 @@ class LoginVC: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource
             response in
             switch response.result{
             case .success(let value):
-                print(value)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
-                self.present(vc!, animated: true, completion: nil)
+                let json = JSON(value)
+                self.keyChain["userId"] = json["userId"].stringValue
+                self.keyChain["isFirst"] = "0"
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
+                self.present(vc , animated : true , completion : nil)
             case .failure(let err) :
                 print(err)
             }
         }
-        
+        self.removeAllOverlays()
     }
     
     func warn(_ msg : String){
