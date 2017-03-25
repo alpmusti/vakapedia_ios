@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */; };
-		BA0F7D9D1E85BB1E001F2E80 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */; };
+		BA0F7D9D1E85BB1E001F2E80 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7D9C1E85BB1E001F2E80 /* ProfileVC.swift */; };
 		BA0F7DA21E85BB1E001F2E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */; };
 		BA0F7DA41E85BB1E001F2E80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */; };
 		BA0F7DA71E85BB1E001F2E80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */; };
 		BA0F7DB21E85BB1E001F2E80 /* VakapediaHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */; };
 		BA0F7DBD1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */; };
-		BA2326861E861AB000E08355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2326851E861AB000E08355 /* ViewController.swift */; };
+		BA2326861E861AB000E08355 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2326851E861AB000E08355 /* MainVC.swift */; };
 		BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7293C11E8601900027E135 /* TabBarVC.swift */; };
 		BAE17B491E85DB5100A295D2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B471E85DB5100A295D2 /* Alamofire.framework */; };
 		BAE17B4A1E85DB5100A295D2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */; };
@@ -67,7 +67,7 @@
 		05D0939402D60F5407749619 /* libPods-VakapediaHackathon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VakapediaHackathon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7D971E85BB1E001F2E80 /* VakapediaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VakapediaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		BA0F7D9C1E85BB1E001F2E80 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BA0F7DA11E85BB1E001F2E80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA0F7DA61E85BB1E001F2E80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		BA0F7DB81E85BB1E001F2E80 /* VakapediaHackathonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VakapediaHackathonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VakapediaHackathonUITests.swift; sourceTree = "<group>"; };
 		BA0F7DBE1E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA2326851E861AB000E08355 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA2326851E861AB000E08355 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		BA7293C11E8601900027E135 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BAE17B471E85DB5100A295D2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */,
-				BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */,
-				BA2326851E861AB000E08355 /* ViewController.swift */,
+				BA0F7D9C1E85BB1E001F2E80 /* ProfileVC.swift */,
+				BA2326851E861AB000E08355 /* MainVC.swift */,
 				BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */,
 				BA7293C11E8601900027E135 /* TabBarVC.swift */,
 				BAE17B4F1E85DBAF00A295D2 /* LoginVC.swift */,
@@ -397,11 +397,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA2326861E861AB000E08355 /* ViewController.swift in Sources */,
+				BA2326861E861AB000E08355 /* MainVC.swift in Sources */,
 				BAE17B501E85DBAF00A295D2 /* LoginVC.swift in Sources */,
 				BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */,
 				BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */,
-				BA0F7D9D1E85BB1E001F2E80 /* FirstViewController.swift in Sources */,
+				BA0F7D9D1E85BB1E001F2E80 /* ProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
