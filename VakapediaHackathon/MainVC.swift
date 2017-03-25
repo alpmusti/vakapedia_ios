@@ -55,8 +55,6 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        print("UserId " , keyChain["userId"]!)
     }
 
     func markSelectedPlace(_ lat : CLLocationDegrees , _ lon : CLLocationDegrees , _ title : String) {

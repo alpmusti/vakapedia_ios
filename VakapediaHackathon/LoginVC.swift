@@ -12,30 +12,44 @@ import KeychainAccess
 import SwiftOverlays
 import SwiftyJSON
 
-class LoginVC: UIViewController{
+class LoginVC: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
 
+    @IBOutlet weak var genderPicker: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var nameField: UITextField!
+    var selectedGender : String!
     
     let baseURL = "http://localhost:1337"
-    let keyChain : Keychain = Keychain(service: "Vakapedia")
+    let keyChain : Keychain = Keychain(service: "Vakapedia").synchronizable(true)
+    let genders = ["Kadın" , "Erkek"]
+    var editingProfile : Bool = false
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)        
-        if keyChain["isFirst"] == "0"{
+        super.viewDidAppear(true)
+        if keyChain["isEditing"] == "1"{
+            editingProfile = true
+            self.keyChain["isFirst"] = "1"
+        }else if keyChain["isFirst"] == "0"{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
             self.present(vc, animated: true, completion: nil)
         }
+        genderPicker.delegate = self
+        genderPicker.dataSource = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
-       @IBAction func saveTapped(_ sender: Any) {
+    @IBAction func saveTapped(_ sender: Any) {
+        self.view.endEditing(true)
+        if !editingProfile{
+            self.showTextOverlay("Hesap oluşturuluyor...")
+        }else{
+            self.showTextOverlay("Hesabınız güncelleniyor...")
+        }
         if (nameField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)! {
             warn("İsim alanı boş olamaz!")
             return
@@ -48,9 +62,10 @@ class LoginVC: UIViewController{
         }else if !isValidEmail(testStr: emailField.text!) {
             warn("Geçersiz mail adresi girdiniz!")
             return
+        }else if editingProfile{
+            updateAccountToServer(nameField.text! , lastNameField.text! , emailField.text! , selectedGender)
         }else{
-            self.showTextOverlay("Hesap oluşturuluyor.")
-            postAccountToServer(nameField.text! , lastNameField.text! , emailField.text!)
+            postAccountToServer(nameField.text! , lastNameField.text! , emailField.text! , selectedGender)
         }
     }
     
@@ -62,15 +77,41 @@ class LoginVC: UIViewController{
         return emailTest.evaluate(with: testStr)
     }
     
-    func postAccountToServer(_ name : String , _ lastName : String , _ email : String){
+    func postAccountToServer(_ name : String , _ lastName : String , _ email : String , _ gender : String){
         self.view.endEditing(true)
         let params : Parameters = [
             "name": name,
             "surname": lastName,
-            "email": email
+            "email": email,
+            "gender": gender
         ]
         
         Alamofire.request("\(baseURL)/createUser", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
+            response in
+            switch response.result{
+            case .success(let value):
+                let json = JSON(value)
+                self.keyChain["userId"] = json["userId"].stringValue
+                self.keyChain["isFirst"] = "0"
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
+                self.present(vc , animated : true , completion : nil)
+            case .failure(let err) :
+                print(err)
+            }
+        }
+        self.removeAllOverlays()
+    }
+    
+    func updateAccountToServer(_ name : String , _ lastName : String , _ email : String , _ gender : String){
+        self.view.endEditing(true)
+        let params : Parameters = [
+            "name": name,
+            "surname": lastName,
+            "email": email,
+            "gender": gender
+        ]
+        
+        Alamofire.request("\(baseURL)/createUser", method: .put, parameters: params, encoding: JSONEncoding.default).responseJSON {
             response in
             switch response.result{
             case .success(let value):
@@ -92,4 +133,18 @@ class LoginVC: UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return genders.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return genders[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedGender = genders[row]
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 }
