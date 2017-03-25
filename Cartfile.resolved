@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.4.0"
+github "kishikawakatsumi/KeychainAccess" "v3.0.1"
+github "Hearst-DD/ObjectMapper" "2.2.5"
+github "peterprokop/SwiftOverlays" "3.0.0"
+github "SwiftyJSON/SwiftyJSON" "3.1.4"

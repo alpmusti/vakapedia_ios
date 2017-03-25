@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GMSServices.provideAPIKey("AIzaSyDdcHPsIFFn55w_zik-tsdqLMHK3ePKkqg")
+        GMSPlacesClient.provideAPIKey("AIzaSyDdcHPsIFFn55w_zik-tsdqLMHK3ePKkqg")
         return true
     }
 
@@ -34,9 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        tabBarController.selectedIndex = 1 // setted default tab
+            
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -15,6 +15,18 @@
 		BA0F7DA71E85BB1E001F2E80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */; };
 		BA0F7DB21E85BB1E001F2E80 /* VakapediaHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */; };
 		BA0F7DBD1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */; };
+		BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7293C11E8601900027E135 /* TabBarVC.swift */; };
+		BAE17B491E85DB5100A295D2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B471E85DB5100A295D2 /* Alamofire.framework */; };
+		BAE17B4A1E85DB5100A295D2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */; };
+		BAE17B4D1E85DB6700A295D2 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B4B1E85DB6700A295D2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAE17B4E1E85DB6700A295D2 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B4C1E85DB6700A295D2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAE17B501E85DBAF00A295D2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17B4F1E85DBAF00A295D2 /* LoginVC.swift */; };
+		BAE17B521E85E5FE00A295D2 /* SwiftOverlays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B511E85E5FE00A295D2 /* SwiftOverlays.framework */; };
+		BAE17B541E85E60B00A295D2 /* SwiftOverlays.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B531E85E60B00A295D2 /* SwiftOverlays.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAE17B581E85EBAF00A295D2 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B571E85EBAF00A295D2 /* KeychainAccess.framework */; };
+		BAE17B5A1E85EBBE00A295D2 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B591E85EBBE00A295D2 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAE17B5C1E85ECCB00A295D2 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B5B1E85ECCB00A295D2 /* ObjectMapper.framework */; };
+		BAE17B5E1E85ECD800A295D2 /* ObjectMapper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B5D1E85ECD800A295D2 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +46,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BAE17B461E85DAE900A295D2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BAE17B5E1E85ECD800A295D2 /* ObjectMapper.framework in CopyFiles */,
+				BAE17B5A1E85EBBE00A295D2 /* KeychainAccess.framework in CopyFiles */,
+				BAE17B541E85E60B00A295D2 /* SwiftOverlays.framework in CopyFiles */,
+				BAE17B4D1E85DB6700A295D2 /* Alamofire.framework in CopyFiles */,
+				BAE17B4E1E85DB6700A295D2 /* SwiftyJSON.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		05D0939402D60F5407749619 /* libPods-VakapediaHackathon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VakapediaHackathon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7D971E85BB1E001F2E80 /* VakapediaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VakapediaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +79,20 @@
 		BA0F7DB81E85BB1E001F2E80 /* VakapediaHackathonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VakapediaHackathonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VakapediaHackathonUITests.swift; sourceTree = "<group>"; };
 		BA0F7DBE1E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA7293C11E8601900027E135 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		BAE17B471E85DB5100A295D2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		BAE17B4B1E85DB6700A295D2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BAE17B4C1E85DB6700A295D2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		BAE17B4F1E85DBAF00A295D2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		BAE17B511E85E5FE00A295D2 /* SwiftOverlays.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOverlays.framework; path = Carthage/Build/iOS/SwiftOverlays.framework; sourceTree = "<group>"; };
+		BAE17B531E85E60B00A295D2 /* SwiftOverlays.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOverlays.framework; path = Carthage/Build/iOS/SwiftOverlays.framework; sourceTree = "<group>"; };
+		BAE17B571E85EBAF00A295D2 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		BAE17B591E85EBBE00A295D2 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		BAE17B5B1E85ECCB00A295D2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		BAE17B5D1E85ECD800A295D2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		F53C67C6AEAB5EE5CC448286 /* Pods-VakapediaHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VakapediaHackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon.release.xcconfig"; sourceTree = "<group>"; };
+		FEAB619A407AC187042A6B64 /* Pods-VakapediaHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VakapediaHackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +100,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE17B5C1E85ECCB00A295D2 /* ObjectMapper.framework in Frameworks */,
+				BAE17B581E85EBAF00A295D2 /* KeychainAccess.framework in Frameworks */,
+				BAE17B521E85E5FE00A295D2 /* SwiftOverlays.framework in Frameworks */,
+				BAE17B491E85DB5100A295D2 /* Alamofire.framework in Frameworks */,
+				BAE17B4A1E85DB5100A295D2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +125,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CC36526D861937930C0D9D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAE17B5B1E85ECCB00A295D2 /* ObjectMapper.framework */,
+				BAE17B571E85EBAF00A295D2 /* KeychainAccess.framework */,
+				BAE17B511E85E5FE00A295D2 /* SwiftOverlays.framework */,
+				BAE17B471E85DB5100A295D2 /* Alamofire.framework */,
+				BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */,
+				05D0939402D60F5407749619 /* libPods-VakapediaHackathon.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46F0F23E6D5302E26B1CADDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FEAB619A407AC187042A6B64 /* Pods-VakapediaHackathon.debug.xcconfig */,
+				F53C67C6AEAB5EE5CC448286 /* Pods-VakapediaHackathon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA0F7D8E1E85BB1E001F2E80 = {
 			isa = PBXGroup;
 			children = (
+				BAE17B5D1E85ECD800A295D2 /* ObjectMapper.framework */,
+				BAE17B591E85EBBE00A295D2 /* KeychainAccess.framework */,
+				BAE17B531E85E60B00A295D2 /* SwiftOverlays.framework */,
+				BAE17B4B1E85DB6700A295D2 /* Alamofire.framework */,
+				BAE17B4C1E85DB6700A295D2 /* SwiftyJSON.framework */,
 				BA0F7D991E85BB1E001F2E80 /* VakapediaHackathon */,
 				BA0F7DB01E85BB1E001F2E80 /* VakapediaHackathonTests */,
 				BA0F7DBB1E85BB1E001F2E80 /* VakapediaHackathonUITests */,
 				BA0F7D981E85BB1E001F2E80 /* Products */,
+				2CC36526D861937930C0D9D9 /* Frameworks */,
+				46F0F23E6D5302E26B1CADDD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +181,8 @@
 				BA0F7D9C1E85BB1E001F2E80 /* FirstViewController.swift */,
 				BA0F7D9E1E85BB1E001F2E80 /* SecondViewController.swift */,
 				BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */,
+				BA7293C11E8601900027E135 /* TabBarVC.swift */,
+				BAE17B4F1E85DBAF00A295D2 /* LoginVC.swift */,
 				BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */,
 				BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */,
 				BA0F7DA81E85BB1E001F2E80 /* Info.plist */,
@@ -135,9 +215,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA0F7DC11E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathon" */;
 			buildPhases = (
+				51202BBBDBD8DC971FA94508 /* 📦 Check Pods Manifest.lock */,
 				BA0F7D931E85BB1E001F2E80 /* Sources */,
 				BA0F7D941E85BB1E001F2E80 /* Frameworks */,
 				BA0F7D951E85BB1E001F2E80 /* Resources */,
+				BAE17B461E85DAE900A295D2 /* CopyFiles */,
+				E480B921B6789EDDCEE2D201 /* 📦 Embed Pods Frameworks */,
+				AF007248A60186EBC810D4F5 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,15 +280,18 @@
 				TargetAttributes = {
 					BA0F7D961E85BB1E001F2E80 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					BA0F7DAC1E85BB1E001F2E80 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BA0F7D961E85BB1E001F2E80;
 					};
 					BA0F7DB71E85BB1E001F2E80 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BA0F7D961E85BB1E001F2E80;
 					};
@@ -257,12 +344,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51202BBBDBD8DC971FA94508 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF007248A60186EBC810D4F5 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E480B921B6789EDDCEE2D201 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA0F7D931E85BB1E001F2E80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BA0F7D9F1E85BB1E001F2E80 /* SecondViewController.swift in Sources */,
+				BAE17B501E85DBAF00A295D2 /* LoginVC.swift in Sources */,
+				BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */,
 				BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */,
 				BA0F7D9D1E85BB1E001F2E80 /* FirstViewController.swift in Sources */,
 			);
@@ -414,8 +551,14 @@
 		};
 		BA0F7DC21E85BB1E001F2E80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEAB619A407AC187042A6B64 /* Pods-VakapediaHackathon.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VakapediaHackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathon;
@@ -426,8 +569,14 @@
 		};
 		BA0F7DC31E85BB1E001F2E80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F53C67C6AEAB5EE5CC448286 /* Pods-VakapediaHackathon.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VakapediaHackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vakapedia.VakapediaHackathon;
@@ -509,6 +658,7 @@
 				BA0F7DC31E85BB1E001F2E80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA0F7DC41E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +667,7 @@
 				BA0F7DC61E85BB1E001F2E80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA0F7DC71E85BB1E001F2E80 /* Build configuration list for PBXNativeTarget "VakapediaHackathonUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +676,7 @@
 				BA0F7DC91E85BB1E001F2E80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
