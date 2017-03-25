@@ -15,7 +15,10 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 	
     @IBOutlet weak var datePickerTxt: UITextField!
     //DATEPICKER
+    @IBOutlet weak var datePickerEnd: UITextField!
     let datePicker = UIDatePicker()
+    let datePicker2 = UIDatePicker()
+    var isMarked : Bool = false
     
     let keyChain : Keychain = Keychain(service: "Vakapedia")
 	// OUTLETS
@@ -46,7 +49,8 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         self.googleMapsView.isMyLocationEnabled = true
         self.googleMapsView.settings.myLocationButton = true
         
-        createDatePicker()
+        createStartDatePicker()
+        createEndDatePicker()
 	}
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +61,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 
     func markSelectedPlace(_ lat : CLLocationDegrees , _ lon : CLLocationDegrees , _ title : String) {
 	
-		
+        googleMapsView.clear()
 		// Creates a marker in the center of the map.
         let position = CLLocationCoordinate2DMake(lat, lon)
         let marker = GMSMarker(position : position)
@@ -67,6 +71,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 		marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
 		marker.title = title
 		marker.map = self.googleMapsView
+        isMarked = true
 	}
 	
 	// MARK: CLLocation Manager Delegate
@@ -132,7 +137,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         self.present(autoCompleteController, animated: true, completion: nil)
     }
     
-    func createDatePicker(){
+    func createStartDatePicker(){
         
         //Formatting the date
         datePicker.datePickerMode = .dateAndTime
@@ -159,5 +164,63 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         datePickerTxt.text = dateFormatter.string(from : datePicker.date)
         self.view.endEditing(true)
     }
+    
+    func createEndDatePicker(){
+        
+        //Formatting the date
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .minute, value: 30, to: Date())
+        
+        datePicker2.datePickerMode = .dateAndTime
+        datePicker2.minimumDate = date
+        
+        //TOOLBAR
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //Bar button item
+        let doneButton = UIBarButtonItem(title : "Bitti" , style: .done, target: nil, action: #selector(doneEndPressed))
+        toolbar.setItems([doneButton], animated: false)
+        
+        datePickerEnd.inputAccessoryView = toolbar
+        
+       datePickerEnd.inputView = datePicker2
+    }
+    
+    func doneEndPressed(){
+        
+        if (datePickerTxt.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)!{
+            showAlert(msg : "İlk önce başlangıç zamanını seçiniz")
+            return
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .medium
+        
+        datePickerEnd.text = dateFormatter.string(from : datePicker2.date)
+        self.view.endEditing(true)
+    }
+    
+    func showAlert(msg : String){
+        let alert = UIAlertController(title: "Uyarı!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction internal func setMatchUp(_ sender: Any){
+        if (datePickerTxt.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)!{
+            showAlert(msg: "Başlangıç tarihi boş bırakılamaz!")
+            return
+        }else if (datePickerEnd.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)!{
+            showAlert(msg : "Bitiş tarihi boş bırakılamaz !")
+            return
+        }else if !isMarked{
+            showAlert(msg: "Lokasyon seçmeniz gerekmektedir!")
+            return
+        }
+        // MARK : TODO matching logic
+    }
+
 }
 
