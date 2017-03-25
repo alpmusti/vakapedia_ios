@@ -16,13 +16,12 @@
 		BA0F7DB21E85BB1E001F2E80 /* VakapediaHackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DB11E85BB1E001F2E80 /* VakapediaHackathonTests.swift */; };
 		BA0F7DBD1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */; };
 		BA2326861E861AB000E08355 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2326851E861AB000E08355 /* MainVC.swift */; };
-		BA2CF8921E86768F00381DA1 /* MatchingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2CF8911E86768F00381DA1 /* MatchingVC.swift */; };
+		BA29544A1E86FFF5009EA89C /* MatchingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2954491E86FFF5009EA89C /* MatchingTableVC.swift */; };
 		BA2CF8941E8676BA00381DA1 /* MatchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2CF8931E8676BA00381DA1 /* MatchingCell.swift */; };
 		BA6C38A61E86AED700FDBC73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA6C38A51E86AED700FDBC73 /* GoogleService-Info.plist */; };
 		BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7293C11E8601900027E135 /* TabBarVC.swift */; };
 		BA9AAFBD1E86CCB300770104 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9AAFBC1E86CCB300770104 /* ChatCell.swift */; };
 		BA9AAFBF1E86CCD900770104 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9AAFBE1E86CCD900770104 /* Message.swift */; };
-		BA9AAFC11E86F07B00770104 /* ListPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9AAFC01E86F07B00770104 /* ListPoint.swift */; };
 		BAB5E8941E86C45800133C3D /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5E8931E86C45800133C3D /* ChatVC.swift */; };
 		BAE17B491E85DB5100A295D2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B471E85DB5100A295D2 /* Alamofire.framework */; };
 		BAE17B4A1E85DB5100A295D2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */; };
@@ -87,13 +86,12 @@
 		BA0F7DBC1E85BB1E001F2E80 /* VakapediaHackathonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VakapediaHackathonUITests.swift; sourceTree = "<group>"; };
 		BA0F7DBE1E85BB1E001F2E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2326851E861AB000E08355 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		BA2CF8911E86768F00381DA1 /* MatchingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingVC.swift; sourceTree = "<group>"; };
+		BA2954491E86FFF5009EA89C /* MatchingTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingTableVC.swift; sourceTree = "<group>"; };
 		BA2CF8931E8676BA00381DA1 /* MatchingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCell.swift; sourceTree = "<group>"; };
 		BA6C38A51E86AED700FDBC73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA7293C11E8601900027E135 /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		BA9AAFBC1E86CCB300770104 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		BA9AAFBE1E86CCD900770104 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		BA9AAFC01E86F07B00770104 /* ListPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoint.swift; sourceTree = "<group>"; };
 		BAB5E8931E86C45800133C3D /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		BAE17B471E85DB5100A295D2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BAE17B481E85DB5100A295D2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -203,8 +201,7 @@
 				BA2326851E861AB000E08355 /* MainVC.swift */,
 				BA0F7D9C1E85BB1E001F2E80 /* ProfileVC.swift */,
 				BA2CF8931E8676BA00381DA1 /* MatchingCell.swift */,
-				BA2CF8911E86768F00381DA1 /* MatchingVC.swift */,
-				BA9AAFC01E86F07B00770104 /* ListPoint.swift */,
+				BA2954491E86FFF5009EA89C /* MatchingTableVC.swift */,
 				BA7293C11E8601900027E135 /* TabBarVC.swift */,
 				BA0F7DA31E85BB1E001F2E80 /* Assets.xcassets */,
 				BA0F7DA81E85BB1E001F2E80 /* Info.plist */,
@@ -421,8 +418,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA29544A1E86FFF5009EA89C /* MatchingTableVC.swift in Sources */,
 				BAB5E8941E86C45800133C3D /* ChatVC.swift in Sources */,
-				BA9AAFC11E86F07B00770104 /* ListPoint.swift in Sources */,
 				BA2326861E861AB000E08355 /* MainVC.swift in Sources */,
 				BA9AAFBD1E86CCB300770104 /* ChatCell.swift in Sources */,
 				BA2CF8941E8676BA00381DA1 /* MatchingCell.swift in Sources */,
@@ -431,7 +428,6 @@
 				BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */,
 				BA9AAFBF1E86CCD900770104 /* Message.swift in Sources */,
 				BA0F7D9D1E85BB1E001F2E80 /* ProfileVC.swift in Sources */,
-				BA2CF8921E86768F00381DA1 /* MatchingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
