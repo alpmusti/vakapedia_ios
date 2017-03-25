@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 import GoogleMaps
 import GooglePlaces
 import KeychainAccess
@@ -73,6 +75,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         
         keyChain["location_x"] = "\(lat)"
         keyChain["location_y"] = "\(lon)"
+        keyChain["location_name"] = title
 	}
 	
 	// MARK: CLLocation Manager Delegate
@@ -111,9 +114,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 		
 		let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
 		self.googleMapsView.camera = camera
-        print(place.coordinate.longitude)
-        print(place.coordinate.latitude)
-        print(place.name)
+        
         markSelectedPlace(place.coordinate.latitude, place.coordinate.longitude, place.name)
 		self.dismiss(animated: true, completion: nil) // dismiss after select place
 		
@@ -220,7 +221,42 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
             showAlert(msg: "Lokasyon seçmeniz gerekmektedir!")
             return
         }
-        // MARK : TODO matching logic
+        
+        let locationName : String = keyChain["location_name"]!
+        let locationX = keyChain["location_x"]
+        let locationY = keyChain["location_y"]
+        let numberFormatter = NumberFormatter()
+        
+        var number = numberFormatter.number(from: locationX!)
+        let numberXFloatValue = number?.floatValue
+        number = numberFormatter.number(from: locationY!)
+        let numberYFloatValue = number?.floatValue
+        
+        let params : Parameters = [
+            "user_id" : keyChain["userId"]!,
+            "location_x" : numberXFloatValue!,
+            "location_y": numberYFloatValue!,
+            "location_name" : locationName,
+            "date_start": datePickerTxt.text!,
+            "date_end": datePickerEnd.text!
+       ]
+        
+        print(params)
+        
+        Alamofire.request("http://localhost:1337/pinPlaces" , method : .post , parameters : params , encoding : JSONEncoding.default ).responseJSON {
+            response in
+            
+            switch response.result{
+            case .success(let value):
+                print(value)
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    @IBAction func handleLogout(_ sender: Any) {
+        try? keyChain.removeAll()
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

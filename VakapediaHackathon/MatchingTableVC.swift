@@ -78,8 +78,7 @@ class MatchingTableVC: UITableViewController {
                                   date_start: json[i]["date_start"].stringValue,
                                   date_end: json[i]["date_end"].stringValue)
                     )
-                }
-                print(self.arrayOfListPoints.count)
+                }                
                 self.tableView.reloadData()
             case .failure(let err) :
                 print(err)

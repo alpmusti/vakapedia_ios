@@ -212,6 +212,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Iy3-tL-Fc6">
+                        <barButtonItem key="leftBarButtonItem" title="Çıkış" id="XvS-Om-y7G">
+                            <connections>
+                                <action selector="handleLogout:" destination="8rJ-Kc-sve" id="v1W-tP-xdi"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="search" id="jQh-Uz-JrB">
                                 <connections>
@@ -230,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
+            <point key="canvasLocation" x="1497" y="457"/>
         </scene>
         <!--Listele-->
         <scene sceneID="DRB-Xa-GhA">
@@ -296,86 +301,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eew-Ry-1UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44" y="1061.9190404797603"/>
-        </scene>
-        <!--Listele-->
-        <scene sceneID="YoC-Hr-xMK">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7uV-pa-ulS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="wi9-lp-8ai" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xTM-w5-Uvj"/>
-                        <viewControllerLayoutGuide type="bottom" id="qC3-XH-wtp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Uka-HJ-4C6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eyx-nB-t9o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="matchingCell" rowHeight="77" id="SJB-Wk-NXP" customClass="MatchingCell" customModule="VakapediaHackathon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJB-Wk-NXP" id="bZS-76-jld">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İsim : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7k7-it-o1X">
-                                                    <rect key="frame" x="15" y="13" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarih  : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w67-Om-U7i">
-                                                    <rect key="frame" x="15" y="53" width="56" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="56" id="yLP-uT-pwD"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasyon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLw-bL-GPX">
-                                                    <rect key="frame" x="267" y="53" width="54" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="7k7-it-o1X" firstAttribute="top" secondItem="bZS-76-jld" secondAttribute="topMargin" constant="5" id="8Lc-iP-cmo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hLw-bL-GPX" secondAttribute="trailing" constant="46.5" id="8o2-cb-EQu"/>
-                                                <constraint firstItem="hLw-bL-GPX" firstAttribute="bottom" secondItem="w67-Om-U7i" secondAttribute="bottom" id="NAq-aa-13C"/>
-                                                <constraint firstItem="w67-Om-U7i" firstAttribute="bottom" secondItem="bZS-76-jld" secondAttribute="bottomMargin" id="P0s-SW-ECM"/>
-                                                <constraint firstItem="w67-Om-U7i" firstAttribute="leading" secondItem="7k7-it-o1X" secondAttribute="leading" id="Uqs-9z-CQ6"/>
-                                                <constraint firstItem="7k7-it-o1X" firstAttribute="leading" secondItem="bZS-76-jld" secondAttribute="leadingMargin" constant="7" id="hU4-aN-jqQ"/>
-                                                <constraint firstItem="hLw-bL-GPX" firstAttribute="top" secondItem="w67-Om-U7i" secondAttribute="top" id="qJz-Wx-JWK"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="wi9-lp-8ai" id="oAB-Dy-wac"/>
-                                    <outlet property="delegate" destination="wi9-lp-8ai" id="a9b-CI-zDy"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Eyx-nB-t9o" firstAttribute="top" secondItem="Uka-HJ-4C6" secondAttribute="top" id="8rQ-3s-yzY"/>
-                            <constraint firstAttribute="trailing" secondItem="Eyx-nB-t9o" secondAttribute="trailing" id="GCN-VE-r2S"/>
-                            <constraint firstItem="Eyx-nB-t9o" firstAttribute="leading" secondItem="Uka-HJ-4C6" secondAttribute="leading" id="Kkz-BS-Nxl"/>
-                            <constraint firstItem="qC3-XH-wtp" firstAttribute="top" secondItem="Eyx-nB-t9o" secondAttribute="bottom" id="mWm-YH-hit"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Listele" image="list" id="AGg-Te-yy7"/>
-                    <connections>
-                        <outlet property="matchingTableView" destination="Eyx-nB-t9o" id="2aX-fs-Euw"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="825" y="1062"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="8zv-hK-ffN">
@@ -465,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca1-4x-WTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="1016.9415292353824"/>
+            <point key="canvasLocation" x="1497" y="1138"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="1Q5-PA-j2k">
@@ -610,7 +535,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8W-Gi-uhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="359"/>
+            <point key="canvasLocation" x="750" y="458"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eSH-MT-ZQn">
@@ -629,7 +554,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBw-mT-bdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="1016.9415292353824"/>
+            <point key="canvasLocation" x="750" y="1139"/>
         </scene>
     </scenes>
     <resources>
