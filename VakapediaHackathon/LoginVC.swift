@@ -36,10 +36,6 @@ class LoginVC: UIViewController{
     }
 
        @IBAction func saveTapped(_ sender: Any) {
-        
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! TabBarVC
-//        self.present(vc, animated: true, completion: nil)
-//        return
         if (nameField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)! {
             warn("İsim alanı boş olamaz!")
             return

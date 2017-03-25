@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Auto Complete
 //
-//  Created by Agus Cahyono on 11/11/16.
-//  Copyright © 2016 balitax. All rights reserved.
+//  Created by Agus Cahyono on 24/03/2017.
+//  Copyright © 2017 Mustafa ALP. All rights reserved.
 //
 
 import UIKit
