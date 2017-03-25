@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Second View Controller-->
+        <!--View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="VakapediaHackathon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ViewController" customModule="VakapediaHackathon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -175,7 +175,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="search" id="jQh-Uz-JrB">
                                 <connections>
-                                    <action selector="searchWithAdress:" destination="8rJ-Kc-sve" id="M8D-em-WHH"/>
+                                    <action selector="openSearchAdress:" destination="8rJ-Kc-sve" id="7Hh-xA-JFx"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Eşleşmeler" id="rjv-fD-tpe"/>
@@ -183,8 +183,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="googleMapsView" destination="lGW-jU-PJ0" id="b3Y-o9-ACi"/>
-                        <outlet property="mapsContainerView" destination="lGW-jU-PJ0" id="DLS-IV-fBv"/>
+                        <outlet property="googleMapsView" destination="lGW-jU-PJ0" id="uLG-BF-IiS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
