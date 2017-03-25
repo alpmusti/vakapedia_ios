@@ -11,6 +11,7 @@ import Alamofire
 import KeychainAccess
 import SwiftOverlays
 import SwiftyJSON
+import Firebase
 
 class LoginVC: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
 
@@ -86,6 +87,29 @@ class LoginVC: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
             "gender": gender
         ]
         
+        FIRAuth.auth()?.createUser(withEmail: email, password: "1234567", completion: {(user : FIRUser? , err) in
+            if err != nil{
+                print(err ?? "hata mesajı alınamadı")
+                return
+            }
+            
+            guard let uid = user?.uid else{
+                return
+            }
+            
+            let ref = FIRDatabase.database().reference(fromURL: "https://hackathon-vakapedia.firebaseio.com/")
+            let usersRef = ref.child("users").child(uid)
+            let values = ["name": name , "email": email]
+            usersRef.updateChildValues(values , withCompletionBlock : {
+                (error ,ref ) in
+                if error != nil{
+                    print(error)
+                    return
+                }
+                print("Saved user successfully")
+            })
+        })
+        
         Alamofire.request("\(baseURL)/createUser", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON {
             response in
             switch response.result{
@@ -125,6 +149,7 @@ class LoginVC: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
             }
         }
         self.removeAllOverlays()
+        keyChain["isEditing"] = "0"
     }
     
     func warn(_ msg : String){

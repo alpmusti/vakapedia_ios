@@ -7,28 +7,27 @@
 //
 
 import UIKit
+import Alamofire
+import KeychainAccess
+import SwiftyJSON
 
-struct match{
-    var name : String!
-    var location : String?
-    var date : String?
-}
 
 class MatchingVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
 
+    let keyChain : Keychain = Keychain(service: "Vakapedia")
     @IBOutlet weak var matchingTableView: UITableView!
-    var matches = [match]()
+    var matches = [ListPoint]()
         override func viewDidLoad() {
         super.viewDidLoad()
         matchingTableView.delegate = self
         matchingTableView.dataSource = self
     
-        matches = [
-                match(name: "Mustafa ALP", location: "Koaceli", date: "11.12.2017"),
-                match(name: "Mustafa ALP3", location: "2Koaceli", date: "13.12.2017"),
-                match(name: "Mustafa ALP2", location: "3Koaceli", date: "12.12.2017")
-        ]
-    
+//        matches = [
+//                match(name: "Mustafa ALP", location: "Koaceli", date: "11.12.2017"),
+//                match(name: "Mustafa ALP3", location: "2Koaceli", date: "13.12.2017"),
+//                match(name: "Mustafa ALP2", location: "3Koaceli", date: "12.12.2017")
+//        ]
+        listMatches()
         matchingTableView.reloadData()
             
     }
@@ -61,6 +60,25 @@ class MatchingVC: UIViewController , UITableViewDelegate , UITableViewDataSource
     }
     
     func setMatch(){
-        print("ok")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    func listMatches(){
+        
+        let locationX = keyChain["location_x"]
+        let locationY = keyChain["location_y"]
+        
+        Alamofire.request("http://localhost:1337/findSimilarLocation?location_x=\(locationX!)&location_y=\(locationY!)" , method: .get).responseJSON{
+            response in
+            switch response.result{
+            case .success(let value) :
+                //print(value)
+                let json = JSON(value)                
+                print(json)
+            case .failure(let err) :
+                print(err)
+            }
+        }
     }
 }

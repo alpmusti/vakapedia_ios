@@ -70,6 +70,9 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 		marker.title = title
 		marker.map = self.googleMapsView
         isMarked = true
+        
+        keyChain["location_x"] = "\(lat)"
+        keyChain["location_y"] = "\(lon)"
 	}
 	
 	// MARK: CLLocation Manager Delegate

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '03BCBF44F2169E3A3BA778457BBFC812'
+               BlueprintIdentifier = '7B06133DC9592669C7682F9E6FF68DF6'
                BlueprintName = 'Pods-VakapediaHackathon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-VakapediaHackathon.a'>
