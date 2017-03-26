@@ -9,30 +9,28 @@
 import UIKit
 import Firebase
 import SwiftyJSON
+import KeychainAccess
 
-class ChatVC: UIViewController , UITableViewDataSource , UITableViewDelegate{
+class ChatVC: UITableViewController{
 
-    @IBOutlet weak var textField: UITextField!
     var messages = [NSDictionary]()
     var messageArray = [String]()
     
-    @IBOutlet weak var chatTableView: UITableView!
+    @IBOutlet weak var messageField: UITextField!
+    @IBAction func sendMessageHandle(_ sender: Any) {
+        print(messageField.text!)
+//        let ref = FIRDatabase.database().reference(fromURL: "https://hackathon-vakapedia.firebaseio.com/").child("messages")
+//        let childRef = ref.childByAutoId()
+//        
+//        let values = ["text" :textField.text , "toId":123 , "fromId" : 1234]
+//        childRef.updateChildValues(values)
+    }
+    
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func handleSend(_ sender: Any) {
-        let ref = FIRDatabase.database().reference(fromURL: "https://hackathon-vakapedia.firebaseio.com/").child("messages")
-        let childRef = ref.childByAutoId()
-        
-        let values = ["text" :textField.text]
-        childRef.updateChildValues(values)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatTableView.delegate = self
-        chatTableView.dataSource = self
         
         fetchMessages()
     }
@@ -51,24 +49,24 @@ class ChatVC: UIViewController , UITableViewDataSource , UITableViewDelegate{
                 self.messageArray.append(item.value(forKey: "text")! as! String)
             }
             
-            self.chatTableView.reloadData()
+            self.tableView.reloadData()
             //print(snapshot)
             // can also use
             // snapshot.childSnapshotForPath("full_name").value as! String
         })
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messageArray.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as! ChatCell
-        cell.message.text = self.messageArray[indexPath.row]
+        cell.messageTxt.text = self.messageArray[indexPath.row]
         return cell
     }
 }

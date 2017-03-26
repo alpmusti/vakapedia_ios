@@ -74,9 +74,13 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
 		marker.map = self.googleMapsView
         isMarked = true
         
+        print("Seçilen yer : \(lat),\(lon) <- \(title)")
+        
         keyChain["location_x"] = "\(lat)"
         keyChain["location_y"] = "\(lon)"
         keyChain["location_name"] = title
+        
+        print("keychain x : " , keyChain["location_x"]!)
 	}
 	
 	// MARK: CLLocation Manager Delegate
@@ -144,6 +148,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         
         //Formatting the date
         datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = NSLocale(localeIdentifier: "tr_TR") as Locale
         
         //TOOLBAR
         let toolbar = UIToolbar()
@@ -161,8 +166,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
     func donePressed(){
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .medium
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         
         datePickerTxt.text = dateFormatter.string(from : datePicker.date)
         self.view.endEditing(true)
@@ -172,9 +176,10 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         
         //Formatting the date
         let calendar = Calendar.current
-        let date = calendar.date(byAdding: .minute, value: 30, to: Date())
+        let date = calendar.date(byAdding: .hour, value: 1, to: Date())
         
         datePicker2.datePickerMode = .dateAndTime
+        datePicker2.locale = NSLocale(localeIdentifier: "tr_TR") as Locale
         datePicker2.minimumDate = date
         
         //TOOLBAR
@@ -198,8 +203,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .medium
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         
         datePickerEnd.text = dateFormatter.string(from : datePicker2.date)
         self.view.endEditing(true)
@@ -226,6 +230,10 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         let locationName : String = keyChain["location_name"]!
         let locationX = keyChain["location_x"]
         let locationY = keyChain["location_y"]
+        
+        keyChain["date_start"] = datePickerTxt.text
+        keyChain["date_end"] = datePickerEnd.text
+        
         let numberFormatter = NumberFormatter()
         
         var number = numberFormatter.number(from: locationX!)
@@ -251,10 +259,12 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
                 let json = JSON(value)
                 print(json)
                 if json["result"] == 1 {
-                    isPinned = true
+                    self.isPinned = true
                 }
             case .failure(let err):
                 print("Error while pinning the place : " , err)
+                self.showAlert(msg: "Bir sorun oluştu. Lütfen tekrar deneyiniz.")
+                return
             }
         }
         
@@ -271,7 +281,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
             switch response.result{
                 case .success(let value):
                     print("open trip için cevap : " , value)
-                    if JSON(value)["result"] == 1{
+                    if JSON(value)["result"] == 1 && self.isPinned{
                         self.showAlert(msg: "Bilgileriniz başarıyla kaydedilmiştir. Yakınlarınızdaki müsait kişilere bakmak için Yakındakiler sekmesine göz atınız.")
                     }
                 case .failure(let err) :
@@ -280,6 +290,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
             }
         }
     }
+    
     @IBAction func handleLogout(_ sender: Any) {
         try? keyChain.removeAll()
         self.dismiss(animated: true, completion: nil)

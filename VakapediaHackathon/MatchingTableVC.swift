@@ -26,11 +26,18 @@ class MatchingTableVC: UITableViewController {
     
     let keyChain : Keychain = Keychain(service: "Vakapedia")
     var arrayOfListPoints = [ListPoint]()
+    var openerUserId : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showTextOverlay("Yakındakiler listeleniyor...")
-        findSimilarPoints()
+        
+        
+        if keyChain["location_x"] != nil && keyChain["location_y"] != nil{
+            self.showWaitOverlayWithText("Yakındakiler listeleniyor...")
+            findSimilarPoints()
+        }else{
+            showAlert(msg: "Haritadan bulunduğunuz yeri seçmelisiniz.")
+        }
     }
     
     // MARK: - Table view data source
@@ -47,19 +54,25 @@ class MatchingTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MatchingCell
-        
-        cell.nameLabel.text = "İsim : \(arrayOfListPoints[indexPath.row].name!) \(arrayOfListPoints[indexPath.row].surname!)"
-        cell.dateLabel.text = "Tarih : \(arrayOfListPoints[indexPath.row].date_start!) - \(arrayOfListPoints[indexPath.row].date_end!)"
-        cell.locationLabel.text = arrayOfListPoints[indexPath.row].location_name
-        
+        if keyChain["userId"] != arrayOfListPoints[indexPath.row].id{
+            cell.nameLabel.text = "İsim : \(arrayOfListPoints[indexPath.row].name!) \(arrayOfListPoints[indexPath.row].surname!)"
+            cell.dateLabel.text = "Tarih : \(arrayOfListPoints[indexPath.row].date_start!) - \(arrayOfListPoints[indexPath.row].date_end!)"
+            cell.locationLabel.text = arrayOfListPoints[indexPath.row].location_name
+        }
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showMatched("\(arrayOfListPoints[indexPath.row].name!) kişisi ile gezmek istediğinize emin misiniz? Onaylayıp gitmediğiniz buluşmalar için güvenilirlik puanı kaybedebilirsiniz." ,arrayOfListPoints[indexPath.row])
+        //print("opener user : \(openerUserId) joined user : \(keyChain["userId"])")
+    }
+    
     func findSimilarPoints(){
-        let locationY = keyChain["location_x"]
-        let locationX = keyChain["location_y"]
+        //let locationY = keyChain["location_x"]
+        //let locationX = keyChain["location_y"]
         
-        Alamofire.request("http://localhost:1337/findSimilarLocation?location_x=\(locationX!)&location_y=\(locationY!)" , method: .get).responseJSON{
+        //MARK : Test purposes
+        Alamofire.request("http://localhost:1337/findSimilarLocation?location_x=41.07&location_y=29.03" , method: .get).responseJSON{
             response in
             switch response.result{
             case .success(let value) :
@@ -92,4 +105,65 @@ class MatchingTableVC: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func showMatched(_ msg : String , _ opener : ListPoint){
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: {action in self.setMatch(opener)}))
+        alert.addAction(UIAlertAction(title : "Vazgeç", style : UIAlertActionStyle.destructive , handler:nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setMatch(_ opener : ListPoint){
+        print("Opener : \(opener.date_start!)-\(opener.date_end!) \nJoiner : \(keyChain["date_start"]!) - \(keyChain["date_end"]!)")
+        let joinerDateStart = keyChain["date_start"]
+        let joinerDateEnd = keyChain["date_end"]
+        
+        let openerStart = timeFormat(opener.date_start) // A
+        let openerEnd = timeFormat(opener.date_end) // B
+        let joinerStart = timeFormat(joinerDateStart!) //C
+        let joinerEnd = timeFormat(joinerDateEnd!) // D
+        
+        var commonStart : String?; var commonEnd : String?;
+        
+        if joinerStart > openerEnd || joinerEnd < openerStart{
+            showAlert(msg : "Seçtiğiniz kişi ile saat aralıklarınız uyuşmamaktadır")
+            return
+        }else if (openerStart < joinerStart && joinerEnd < openerEnd) {
+            commonStart = joinerDateStart
+            commonEnd = joinerDateEnd
+        }else if (openerStart < joinerStart && openerEnd < joinerEnd) {
+            commonStart = joinerDateStart
+            commonEnd = opener.date_end
+        }else if (joinerStart < openerStart && joinerEnd < openerEnd) {
+            commonStart = opener.date_start
+            commonEnd = joinerDateEnd
+        }else if (joinerStart < openerStart && openerEnd < joinerEnd) {
+            commonStart = opener.date_start
+            commonEnd = opener.date_end
+        }
+        
+        print("common hours \(commonStart!) - \(commonEnd!)")
+        //print(startTime![0])
+        //parametreler : opener_user , joined_user , location_name , common_hours
+        
+        
+        //Alamofire.request("http://localhost:1337/joinTrip" , method : .post , )
+        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! UINavigationController
+//        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func timeFormat(_ fullDate : String) -> Int{
+        var wholeDate = fullDate
+        let splittedDate = wholeDate.characters.split{$0 == " "}.map(String.init)
+        let startTime = splittedDate[1].characters.split{$0 == ":"}.map(String.init)
+        
+        // or simply:
+        // let fullNameArr = fullName.characters.split{" "}.map(String.init)
+        let start : Int = Int(
+            startTime[0]
+            .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        )!
+        
+        return start
+    }
 }
