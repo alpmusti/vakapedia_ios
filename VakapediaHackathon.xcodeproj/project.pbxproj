@@ -34,6 +34,8 @@
 		BAE17B5A1E85EBBE00A295D2 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B591E85EBBE00A295D2 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BAE17B5C1E85ECCB00A295D2 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE17B5B1E85ECCB00A295D2 /* ObjectMapper.framework */; };
 		BAE17B5E1E85ECD800A295D2 /* ObjectMapper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAE17B5D1E85ECD800A295D2 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BAED74291E87D05900033BA4 /* MatchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED74281E87D05900033BA4 /* MatchedVC.swift */; };
+		BAED742D1E87D84900033BA4 /* MatchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED742C1E87D84900033BA4 /* MatchedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		BAE17B591E85EBBE00A295D2 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		BAE17B5B1E85ECCB00A295D2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		BAE17B5D1E85ECD800A295D2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		BAED74281E87D05900033BA4 /* MatchedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedVC.swift; sourceTree = "<group>"; };
+		BAED742C1E87D84900033BA4 /* MatchedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedCell.swift; sourceTree = "<group>"; };
 		F53C67C6AEAB5EE5CC448286 /* Pods-VakapediaHackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VakapediaHackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon.release.xcconfig"; sourceTree = "<group>"; };
 		FEAB619A407AC187042A6B64 /* Pods-VakapediaHackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VakapediaHackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VakapediaHackathon/Pods-VakapediaHackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,12 +197,14 @@
 			children = (
 				BA0F7DA51E85BB1E001F2E80 /* LaunchScreen.storyboard */,
 				BA0F7DA01E85BB1E001F2E80 /* Main.storyboard */,
+				BAED742C1E87D84900033BA4 /* MatchedCell.swift */,
 				BA9AAFBC1E86CCB300770104 /* ChatCell.swift */,
 				BAB5E8931E86C45800133C3D /* ChatVC.swift */,
 				BA9AAFBE1E86CCD900770104 /* Message.swift */,
 				BA0F7D9A1E85BB1E001F2E80 /* AppDelegate.swift */,
 				BAE17B4F1E85DBAF00A295D2 /* LoginVC.swift */,
 				BA2326851E861AB000E08355 /* MainVC.swift */,
+				BAED74281E87D05900033BA4 /* MatchedVC.swift */,
 				BA0F7D9C1E85BB1E001F2E80 /* ProfileVC.swift */,
 				BA2CF8931E8676BA00381DA1 /* MatchingCell.swift */,
 				BA2954491E86FFF5009EA89C /* MatchingTableVC.swift */,
@@ -420,9 +426,11 @@
 			files = (
 				BA29544A1E86FFF5009EA89C /* MatchingTableVC.swift in Sources */,
 				BAB5E8941E86C45800133C3D /* ChatVC.swift in Sources */,
+				BAED742D1E87D84900033BA4 /* MatchedCell.swift in Sources */,
 				BA2326861E861AB000E08355 /* MainVC.swift in Sources */,
 				BA9AAFBD1E86CCB300770104 /* ChatCell.swift in Sources */,
 				BA2CF8941E8676BA00381DA1 /* MatchingCell.swift in Sources */,
+				BAED74291E87D05900033BA4 /* MatchedVC.swift in Sources */,
 				BAE17B501E85DBAF00A295D2 /* LoginVC.swift in Sources */,
 				BA7293C21E8601900027E135 /* TabBarVC.swift in Sources */,
 				BA0F7D9B1E85BB1E001F2E80 /* AppDelegate.swift in Sources */,

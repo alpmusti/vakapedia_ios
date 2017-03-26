@@ -11,19 +11,16 @@ import Firebase
 import SwiftyJSON
 import KeychainAccess
 
-class ChatVC: UITableViewController{
+class ChatVC: UITableViewController, UITextFieldDelegate{
 
     var messages = [NSDictionary]()
     var messageArray = [String]()
+    let keyChain : Keychain = Keychain(service : "Vakapedia")
     
     @IBOutlet weak var messageField: UITextField!
     @IBAction func sendMessageHandle(_ sender: Any) {
-        print(messageField.text!)
-//        let ref = FIRDatabase.database().reference(fromURL: "https://hackathon-vakapedia.firebaseio.com/").child("messages")
-//        let childRef = ref.childByAutoId()
-//        
-//        let values = ["text" :textField.text , "toId":123 , "fromId" : 1234]
-//        childRef.updateChildValues(values)
+        print("ok")
+        handleSend()
     }
     
     @IBAction func backBtn(_ sender: Any) {
@@ -31,7 +28,7 @@ class ChatVC: UITableViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.messageField.delegate = self
         fetchMessages()
     }
     
@@ -68,5 +65,21 @@ class ChatVC: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as! ChatCell
         cell.messageTxt.text = self.messageArray[indexPath.row]
         return cell
+    }
+    
+    func handleSend(){
+        let toId = keyChain["toId"]!
+        let fromId  = keyChain["userId"]!
+        let ref = FIRDatabase.database().reference(fromURL: "https://hackathon-vakapedia.firebaseio.com/").child("messages")
+        let childRef = ref.childByAutoId()
+        
+        let values = ["text" : messageField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines), "toId": toId , "fromId": fromId] as [String : Any]
+        childRef.updateChildValues(values)
+        fetchMessages()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        handleSend()
+        return true
     }
 }

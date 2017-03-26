@@ -295,6 +295,11 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
         try? keyChain.removeAll()
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func showMatchedList(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MatchedVC")
+        self.present(vc!, animated: true , completion: nil)
+    }
 
 }
 

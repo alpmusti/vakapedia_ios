@@ -54,10 +54,15 @@ class MatchingTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MatchingCell
-        if keyChain["userId"] != arrayOfListPoints[indexPath.row].id{
+        
+        if(keyChain["userId"] != arrayOfListPoints[indexPath.row].id!){
+            
             cell.nameLabel.text = "İsim : \(arrayOfListPoints[indexPath.row].name!) \(arrayOfListPoints[indexPath.row].surname!)"
             cell.dateLabel.text = "Tarih : \(arrayOfListPoints[indexPath.row].date_start!) - \(arrayOfListPoints[indexPath.row].date_end!)"
             cell.locationLabel.text = arrayOfListPoints[indexPath.row].location_name
+        }else{
+            arrayOfListPoints.remove(at: indexPath.row)
+            self.tableView.reloadData()
         }
         return cell
     }
@@ -84,7 +89,7 @@ class MatchingTableVC: UITableViewController {
                                   location_x: json[i]["location_x"].floatValue,
                                   location_y: json[i]["location_y"].floatValue,
                                   location_name: json[i]["location_name"].stringValue,
-                                  id: json[i]["id"].stringValue,
+                                  id: json[i]["user_id"].stringValue,
                                   date_start: json[i]["date_start"].stringValue,
                                   date_end: json[i]["date_end"].stringValue)
                     )
@@ -127,29 +132,48 @@ class MatchingTableVC: UITableViewController {
         if joinerStart > openerEnd || joinerEnd < openerStart{
             showAlert(msg : "Seçtiğiniz kişi ile saat aralıklarınız uyuşmamaktadır")
             return
-        }else if (openerStart < joinerStart && joinerEnd < openerEnd) {
+        }else if (openerStart <= joinerStart && joinerEnd <= openerEnd) {
             commonStart = joinerDateStart
             commonEnd = joinerDateEnd
-        }else if (openerStart < joinerStart && openerEnd < joinerEnd) {
+        }else if (openerStart <= joinerStart && openerEnd <= joinerEnd) {
             commonStart = joinerDateStart
             commonEnd = opener.date_end
-        }else if (joinerStart < openerStart && joinerEnd < openerEnd) {
+        }else if (joinerStart <= openerStart && joinerEnd <= openerEnd) {
             commonStart = opener.date_start
             commonEnd = joinerDateEnd
-        }else if (joinerStart < openerStart && openerEnd < joinerEnd) {
+        }else if (joinerStart <= openerStart && openerEnd <= joinerEnd) {
             commonStart = opener.date_start
             commonEnd = opener.date_end
         }
-        
-        print("common hours \(commonStart!) - \(commonEnd!)")
-        //print(startTime![0])
+        print("\(commonStart!)-\(commonEnd!)")
         //parametreler : opener_user , joined_user , location_name , common_hours
+        let paramsForTrip : Parameters = [
+        "opener_user": opener.id,
+        "joined_user" : keyChain["userId"]!,
+        "location_name" : opener.location_name,
+        "common_hours" : "\(commonStart!)-\(commonEnd!)"
+        ]
         
-        
-        //Alamofire.request("http://localhost:1337/joinTrip" , method : .post , )
-        
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! UINavigationController
-//        self.present(vc, animated: true, completion: nil)
+        print(paramsForTrip)
+        Alamofire.request("http://localhost:1337/joinTrip" , method : .post , parameters : paramsForTrip , encoding : JSONEncoding.default ).responseJSON{
+            
+            response in
+            
+            switch response.result{
+            case .success(let value):
+                print(value)
+                let json = JSON(value)
+                if json["result"] == 1 {
+                    self.keyChain["toId"] = opener.id
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! UINavigationController
+                    self.present(vc, animated: true, completion: nil)
+                }
+            case .failure(let err):
+                print("Error while posting join Trip " , err)
+                return
+            }
+        }
+       
     }
     
     func timeFormat(_ fullDate : String) -> Int{
