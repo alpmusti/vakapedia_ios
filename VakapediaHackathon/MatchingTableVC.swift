@@ -29,8 +29,7 @@ class MatchingTableVC: UITableViewController {
     var openerUserId : String!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         
         if keyChain["location_x"] != nil && keyChain["location_y"] != nil{
             self.showWaitOverlayWithText("Yakındakiler listeleniyor...")
@@ -38,6 +37,7 @@ class MatchingTableVC: UITableViewController {
         }else{
             showAlert(msg: "Haritadan bulunduğunuz yeri seçmelisiniz.")
         }
+        
     }
     
     // MARK: - Table view data source

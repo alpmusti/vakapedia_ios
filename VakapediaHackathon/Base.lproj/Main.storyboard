@@ -308,7 +308,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="1136.5817091454273"/>
         </scene>
-        <!--ChatVC-->
+        <!--Eşleştiklerim-->
         <scene sceneID="l5n-7X-JlE">
             <objects>
                 <tableViewController id="34y-Vw-xrN" customClass="ChatVC" customModule="VakapediaHackathon" customModuleProvider="target" sceneMemberID="viewController">
@@ -381,7 +381,7 @@
                             <outlet property="delegate" destination="34y-Vw-xrN" id="7Ue-Xi-OKd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="A63-Zf-fYC">
+                    <navigationItem key="navigationItem" title="Eşleştiklerim" id="A63-Zf-fYC">
                         <barButtonItem key="leftBarButtonItem" title="Geri" id="Jzn-vn-Yhg">
                             <connections>
                                 <action selector="backBtn:" destination="34y-Vw-xrN" id="x05-Rb-pBK"/>
