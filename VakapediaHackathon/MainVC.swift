@@ -21,6 +21,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
     let datePicker = UIDatePicker()
     let datePicker2 = UIDatePicker()
     var isMarked : Bool = false
+    var isPinned : Bool = false
     
     let keyChain : Keychain = Keychain(service: "Vakapedia")
 	// OUTLETS
@@ -241,6 +242,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
             "date_end": datePickerEnd.text!
        ]
         
+        //Pin the place
         Alamofire.request("http://localhost:1337/pinPlaces" , method : .post , parameters : params , encoding : JSONEncoding.default ).responseJSON {
             response in
             
@@ -249,10 +251,32 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
                 let json = JSON(value)
                 print(json)
                 if json["result"] == 1 {
-                    self.showAlert(msg: "Bilgileriniz başarıyla kaydedilmiştir. Yakınlarınızdaki müsait kişilere bakmak için Listele sekmesine göz atın.")
+                    isPinned = true
                 }
             case .failure(let err):
-                print(err)
+                print("Error while pinning the place : " , err)
+            }
+        }
+        
+        let paramsTrip : Parameters = [
+            "opener_user" : keyChain["userId"]!,
+            "location_name" : locationName
+        ]
+        
+        //Open a trip
+        Alamofire.request("http://localhost:1337/openTrip" , method: .post , parameters : paramsTrip).responseJSON {
+            
+            response in
+        
+            switch response.result{
+                case .success(let value):
+                    print("open trip için cevap : " , value)
+                    if JSON(value)["result"] == 1{
+                        self.showAlert(msg: "Bilgileriniz başarıyla kaydedilmiştir. Yakınlarınızdaki müsait kişilere bakmak için Yakındakiler sekmesine göz atınız.")
+                    }
+                case .failure(let err) :
+                    print("Error while opening a trip : " , err)
+                    return
             }
         }
     }
