@@ -205,7 +205,7 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
     }
     
     func showAlert(msg : String){
-        let alert = UIAlertController(title: "Uyarı!", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -241,14 +241,16 @@ class MainVC : UIViewController, UISearchBarDelegate , CLLocationManagerDelegate
             "date_end": datePickerEnd.text!
        ]
         
-        print(params)
-        
         Alamofire.request("http://localhost:1337/pinPlaces" , method : .post , parameters : params , encoding : JSONEncoding.default ).responseJSON {
             response in
             
             switch response.result{
             case .success(let value):
-                print(value)
+                let json = JSON(value)
+                print(json)
+                if json["result"] == 1 {
+                    self.showAlert(msg: "Bilgileriniz başarıyla kaydedilmiştir. Yakınlarınızdaki müsait kişilere bakmak için Listele sekmesine göz atın.")
+                }
             case .failure(let err):
                 print(err)
             }

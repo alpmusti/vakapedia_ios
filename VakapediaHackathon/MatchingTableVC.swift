@@ -29,12 +29,10 @@ class MatchingTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showTextOverlay("Yakındakiler listeleniyor...")
         findSimilarPoints()
-        print(arrayOfListPoints.count)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,7 +63,6 @@ class MatchingTableVC: UITableViewController {
             response in
             switch response.result{
             case .success(let value) :
-                print(value)
                 let json = JSON(value)
                 for i in 0..<json.count{
                     self.arrayOfListPoints.append(
@@ -80,9 +77,19 @@ class MatchingTableVC: UITableViewController {
                     )
                 }                
                 self.tableView.reloadData()
+                if(self.arrayOfListPoints.count == 0){
+                    self.showAlert(msg: "Yakınlarınızda müsait olan herhangi bir kişi bulunamadı!")
+                }
             case .failure(let err) :
                 print(err)
             }
         }
+        self.removeAllOverlays()
     }
+    func showAlert(msg : String){
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
